@@ -1,15 +1,42 @@
+
+navigator.geolocation.getCurrentPosition((position) => {
+    console.log(position);
+    console.log(position.coords.latitude);
+    console.log(position.coords.longitude);
+});
+  
+
+
 const diaSemana = document.getElementById("dia-semana");
 const dataAtual = document.getElementById("data-atual");
 const horaAtual = document.getElementById("hora-atual");
 const btnRegistrarPonto = document.getElementById("btn-registrar-ponto");
 
-btnRegistrarPonto.addEventListener("click",);
-diaSemana.textContent = getWeekDay();
+btnRegistrarPonto.addEventListener("click", register);
+
+diaSemana.textContent = getWeekDay(); 
 dataAtual.textContent = getCurrentDate();
 
+const dialogPonto = document.getElementById("dialog-ponto");
+
+const dialogData = document.getElementById("dialog-data");
+dialogData.textContent = getCurrentDate();
+
+
+const dialogHora = document.getElementById("dialog-hora");
+dialogHora.textContent = getCurrentTime();
+
+
+const btnDialogFechar = document.getElementById("dialog-fechar");
+
+btnDialogFechar.addEventListener("click",() => {
+    dialogPonto.close();
+})
 
 function register(){
-    alert("Bater ponto");
+   dialogPonto.showModal();
+    //dialog é o elemento dialogPonto
+    // e o método que abre o dialog em estilo modal é o showDialog()
 }
 
 
