@@ -1,7 +1,12 @@
-.data-hora{
+.data-hora {
     text-align: center;
 }
 
-.button{
-    text-align: center;
+#dialog-fechar {
+    position: absolute;
+    top: 0;
+    right: 0;
+    
 }
+
+
