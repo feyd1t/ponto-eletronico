@@ -7,29 +7,33 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <div class="data-hora">
+
+    <!-- Área para exibir data, hora e dia da semana -->
+    <div>
         <p id="dia-semana"></p>
         <p id="data-atual"></p>
         <p id="hora-atual"></p>
     </div>
-    <button id="btn-registrar-ponto">Registrar ponto</button>
 
+    <!-- Select para tipo de registro -->
+    <select id="register-type">
+        <option value="entrada">Entrada</option>
+        <option value="intervalo">Intervalo</option>
+        <option value="volta-intervalo">Volta Intervalo</option>
+        <option value="saida">Saída</option>
+    </select>
+
+    <!-- Botão de registrar -->
+    <button id="btn-registrar-ponto">Registrar Ponto</button>
+
+    <!-- Mensagem de status -->
+    <p id="mensagem"></p>
+
+    <!-- Modal para o registro de ponto -->
     <dialog id="dialog-ponto">
-        <p id="dialog-data">Data</p>
-        <p id="dialog-hora">Hora</p>
-        <select name="register-type" id="register-type">
-            <option value="entrada">Entrada</option>
-            <option value="intervalo">Intervalo</option>
-            <option value="volta-intervalo">Volta Intervalo</option>
-            <option value="saida">Saída</option>
-        </select>
-        <button id="btn-dialog-register">Registrar</button>
-        <!-- 
-        <button id="btn-dialog-entrada">Entrada</button>
-        <button>Intervalo</button>
-        <button>Volta Intervalo</button>
-        <button id="btn-dialog-saida">Saída</button>
-        -->
+        <p id="dialog-data"></p>
+        <p id="dialog-hora"></p>
+        <button id="btn-dialog-register">Confirmar Registro</button>
         <button id="dialog-fechar">X</button>
     </dialog>
 
