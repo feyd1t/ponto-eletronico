@@ -17,99 +17,89 @@ dialogData.textContent = getCurrentDate();
 const dialogHora = document.getElementById("dialog-hora");
 dialogHora.textContent = getCurrentTime();
 
+const selectRegisterTypeElement = document.getElementById("register-type");
 
-const btnDialogEntrada = document.getElementById("btn-dialog-entrada");
-btnDialogEntrada.addEventListener("click", () => {
-    
-    let currentDate = getCurrentDate();
-    let currentTime = getCurrentTime();
-    let userLocation = getUserLocation();
-
-    ponto = {
-        "date": currentDate,
-        "time": currentTime,
-        "location": userLocation,
-        "id": 1,
-        "type": "entrada"
-    }
-
-    console.log(ponto);
+const btnDialogRegister = document.getElementById("btn-dialog-register");
+btnDialogRegister.addEventListener("click", async () => {
+    let register = await getObjectRegister(selectRegisterTypeElement.value);
+    saveRegisterLocalStorage(register);
 });
 
 
-const btnDialogSaida = document.getElementById("btn-dialog-saida");
-btnDialogSaida.addEventListener("click", () => {
-    console.log(getObjectRegiste("entrada"));
-
-});
-
-
-
-function getObjectRegiste(registerType){
+async function getObjectRegister(registerType) {
+    let location = await getUserLocation();
     
-    let currentDate = getCurrentDate();
-    let currentTime = getCurrentTime();
-    let userLocation = userLocation();
-    
-    ponto = {
-        "date": currentDate,
-        "time": currentTime,
-        "location": userLocation,
-        "id": 1,
-        "type": "saida"
-
-    }
-    
+    const ponto = {
+        "date": getCurrentDate(),
+        "time": getCurrentTime(),
+        "location": location,
+        "id": 1, // Você pode usar um id dinâmico aqui
+        "type": registerType
+    };
     return ponto;
 }
 
 const btnDialogFechar = document.getElementById("dialog-fechar");
 btnDialogFechar.addEventListener("click", () => {
     dialogPonto.close();
-})
+});
 
+let registerslocalStorage = getRegisterLocalStorage("register");
 
-
-
-function getUserLocation() {
-    navigator.geolocation.getCurrentPosition((position) => {   
-        let userLocation = {
-            "lat": position.coords.latitude,
-            "long": position.coords.longitude
-        }
-        locationUser = userLocation;
-        console.log(locationUser);
-    });
+function saveRegisterLocalStorage(register) {
+    registerslocalStorage.push(register);
+    localStorage.setItem("register", JSON.stringify(registerslocalStorage));
 }
 
+function getRegisterLocalStorage(key) {
+    let registers = localStorage.getItem(key);
+    if (!registers) {
+        return [];
+    }
+    return JSON.parse(registers);
+}
+
+async function getUserLocation() {
+    return new Promise((resolve, reject) => {
+        navigator.geolocation.getCurrentPosition((position) => {
+            let userLocation = {
+                "lat": position.coords.latitude,
+                "long": position.coords.longitude
+            };
+            resolve(userLocation);
+        }, () => {
+            reject({
+                "lat": "N/A",
+                "long": "N/A"
+            });
+        });
+    });
+}
 
 function register() {
     dialogPonto.showModal();
 }
 
-
 function updateContentHour() {
     horaAtual.textContent = getCurrentTime();
 }
 
-// Retorna a hora atual (hora/minuto/segundo)
 function getCurrentTime() {
     const date = new Date();
     return String(date.getHours()).padStart(2, '0') + ":" + String(date.getMinutes()).padStart(2, '0') + ":" + String(date.getSeconds()).padStart(2, '0');
 }
 
-// Retorna a data atual no padrão dd/mm/aaaa
 function getCurrentDate() {
     const date = new Date(); 
     let mes = date.getMonth() + 1;
-    return String(date.getDate()).padStart(2, '0') + "/" + String(mes).padStart(2, '0') + "/" +  String(date.getFullYear()).padStart(2, '0');
+    return String(date.getDate()).padStart(2, '0') + "/" + String(mes).padStart(2, '0') + "/" +  String(date.getFullYear());
 }
 
 function getWeekDay() {
-    const date = new Date()
-    const day = date.getDay()
+    const date = new Date();
+    const day = date.getDay();
     const daynames = ["Domingo", "Segunda-feira", "Terça-feira", "Quarta-feira", "Quinta-feira", "Sexta-feira", "Sábado"];
-    return daynames[day]
+    return daynames[day];
 }
 
 updateContentHour();

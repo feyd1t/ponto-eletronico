@@ -10,3 +10,140 @@
 }
 
 
+/* Estilos globais */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #e0e0e0;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+/* Caixa central com as informações do ponto */
+.container {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    text-align: center;
+    width: 400px;
+}
+
+/* Cabeçalho do registro de ponto */
+h1 {
+    font-size: 20px;
+    color: #333;
+}
+
+/* Estilo do botão para bater ponto */
+button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    margin-top: 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+/* Estilo do alerta de sucesso no topo */
+#alert-top {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    padding: 15px;
+    text-align: center;
+    z-index: 9999;
+    background-color: #d4edda; /* cor de sucesso */
+    color: #155724;
+    display: none;
+    transition: all 0.5s ease;
+}
+
+#alert-top.alert-error {
+    background-color: #f8d7da; /* cor de erro */
+    color: #721c24;
+}
+
+#alert-top.alert-warning {
+    background-color: #fff3cd; /* cor de alerta */
+    color: #856404;
+}
+
+#alert-top button {
+    background: none;
+    border: none;
+    font-size: 20px;
+    font-weight: bold;
+    color: inherit;
+    cursor: pointer;
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+/* Estilo do diálogo de registro de ponto */
+#dialog-ponto {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    padding: 20px;
+    width: 300px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    z-index: 100;
+}
+
+/* Estilo para o botão de fechar no diálogo */
+#dialog-fechar {
+    background: none;
+    border: none;
+    font-size: 18px;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+}
+
+/* Estilo para o dropdown de seleção */
+select {
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+/* Último registro de ponto */
+#ultimo-registro {
+    font-size: 12px;
+    color: #777;
+    margin-top: 10px;
+}
+
+/* Animação e transição */
+.alert-show {
+    opacity: 1;
+    top: 0;
+}
+
+.alert-hide {
+    opacity: 0;
+    top: -100px;
+}
+
+/* Transição suave */
+.alert-transition {
+    transition: top 0.5s ease, opacity 0.5s ease;
+}
