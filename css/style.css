@@ -6,24 +6,24 @@
     position: absolute;
     top: 0;
     right: 0;
-    
 }
+
 button {
-    background-color: #4CAF50; /* Verde */
+    background-color: #000000; /* Preto */
     color: white;
     border: none;
     border-radius: 5px;
     padding: 10px 20px;
     font-size: 16px;
+    font-weight: bold; /* Negrito nas fontes */
     cursor: pointer;
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
     transition: background-color 0.3s ease;
 }
 
 button:hover {
-    background-color: #45a049; /* Efeito hover */
+    background-color: #333333; /* Efeito hover, preto mais claro */
 }
-
 
 @media only screen and (max-width: 600px) {
     body {
@@ -37,8 +37,9 @@ button:hover {
 
 body {
     font-family: 'Roboto', sans-serif;
-    background-color: #f5f5f5;
-    color: #333;
+    background-color: orangered; /* Fundo laranja escuro */
+    color: #000000; /* Texto preto */
+    font-weight: bold; /* Negrito nas fontes */
     text-align: center;
     padding: 20px;
 }
@@ -48,10 +49,11 @@ p {
 }
 
 #btn-registrar-ponto {
-    background-color: #4CAF50;
+    background-color: #000000; /* Preto */
     color: white;
     padding: 12px 24px;
     font-size: 18px;
+    font-weight: bold; /* Negrito nas fontes */
     border: none;
     border-radius: 8px;
     cursor: pointer;
@@ -60,14 +62,17 @@ p {
 }
 
 #btn-registrar-ponto:hover {
-    background-color: #45a049;
+    background-color: #333333; /* Preto mais claro no hover */
 }
 
 select {
     padding: 10px;
     border-radius: 5px;
-    border: 1px solid #ccc;
+    border: 3px solid #000000; /* Preto */
     font-size: 16px;
+    background-color: rgb(61, 57, 57); /* Fundo laranja */
+    color: white; /* Texto preto */
+    font-weight: bold; /* Negrito nas fontes */
 }
 
 dialog {
@@ -75,10 +80,32 @@ dialog {
     border-radius: 10px;
     padding: 20px;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    background-color: rgb(61, 57, 57); /* Fundo laranja */
+    color: white; /* Texto preto */
+    font-weight: bold; /* Negrito nas fontes */
 }
 
 #mensagem {
     margin-top: 20px;
     font-size: 18px;
     transition: opacity 1s ease-in-out;
+}
+
+#alerta-ponto-registrado {
+    border: 1px solid #000000; /* Preto */
+    position: fixed;
+    bottom: 10px;
+    font-size: 1.3rem;
+    padding: 5px;
+    background-color: #000000; /* Preto */
+    color: white;
+    font-weight: bold; /* Negrito nas fontes */
+}
+
+.hidden {
+    opacity: 0;
+}
+
+.show {
+    opacity: 1;
 }

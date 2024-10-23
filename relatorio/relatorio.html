@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Controle de Ponto</title>
+    <link rel="stylesheet" href="../css/relatorio.css">
+
+</head>
+<body>
+    <div class="container">
+        <!-- Seção de autenticação -->
+        <div id="loginSection">
+            <h1>Autenticação de Usuário</h1>
+            <form id="loginForm">
+                <label for="username">Usuário:</label>
+                <input type="text" id="username" required>
+                <label for="password">Senha:</label>
+                <input type="password" id="password" required>
+                <button type="submit">Entrar</button>
+                <button id="btn-voltar" onclick="window.location.href='../index.html';">Voltar</button>
+
+
+            </form>
+            <div id="loginError" class="error"></div>
+        </div>
+
+        <!-- Seção principal do sistema -->
+        <div id="mainSection" style="display: none;">
+            <h1>Relatorio de Ponto</h1>
+
+            <!-- Formulário para registrar ponto -->
+            <form id="formPonto" enctype="multipart/form-data">
+                <label for="data">Data:</label>
+                <input type="date" id="data" name="data" required>
+
+                <label for="hora">Hora:</label>
+                <input type="time" id="hora" name="hora" required>
+
+                <label for="justificativa">Justificativa (opcional):</label>
+                <input type="file" id="justificativa" name="justificativa">
+
+                <label for="observacao">Observação (opcional):</label>
+                <input type="text" id="observacao" name="observacao" placeholder="Adicionar observação">
+
+                <button type="submit">Registrar Ponto</button>
+            </form>
+
+            <!-- Relatório de pontos -->
+            <h2>Relatório de Registros</h2>
+            <div id="filtros">
+                <button onclick="filtrarPeriodo('semana')">Última Semana</button>
+                <button onclick="filtrarPeriodo('mes')">Último Mês</button>
+            </div>
+
+            <table id="relatorio">
+                <thead>
+                    <tr>
+                        <th>Data</th>
+                        <th>Hora</th>
+                        <th>Justificativa</th>
+                        <th>Observação</th>
+                        <th>Ações</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+
+            <!-- Paginação -->
+            <div id="pagination">
+                <button onclick="previousPage()">Anterior</button>
+                <span id="pageInfo"></span>
+                <button onclick="nextPage()">Próxima</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="../js/relatorio.js"></script>
+
+</body>
+</html>
