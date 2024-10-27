@@ -4,7 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sistema de Controle de Ponto</title>
+
     <link rel="stylesheet" href="../relatorio/style.css">
+
 
 
 </head>
@@ -19,13 +21,18 @@
                 <label for="password">Senha:</label>
                 <input type="password" id="password" required>
                 <button type="submit">Entrar</button>
+
+                <button id="btn-voltar" onclick="window.location.href='../index.html';">Voltar</button>
+
             </form>
             <div id="loginError" class="error"></div>
         </div>
 
         <!-- Seção principal do sistema -->
         <div id="mainSection" style="display: none;">
+
             <h1>Registro de Ponto</h1>
+
 
             <!-- Formulário para registrar ponto -->
             <form id="formPonto" enctype="multipart/form-data">
