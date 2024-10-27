@@ -10,7 +10,6 @@ body {
     margin: 0;
     overflow-x: hidden;
 }
-
 /* Container centralizado */
 .container {
     background-color: rgba(255, 255, 255, 0.1); /* Fundo escuro semi-transparente */
@@ -96,5 +95,4 @@ dialog {
 .show {
     opacity: 1;
     transform: translateY(0);
-    transition: opacity 0.4s ease, transform 0.4s ease;
 }
