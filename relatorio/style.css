@@ -1,0 +1,127 @@
+/* Estilo geral */
+body {
+    font-family: 'Roboto', sans-serif;
+    background: linear-gradient(135deg, #141e30, #243b55); /* Fundo gradiente escuro */
+    color: #e0e0e0; /* Cor de texto suave */
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+/* Container centralizado com fundo semi-transparente */
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: rgba(255, 255, 255, 0.1); /* Fundo branco semi-transparente */
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.5); /* Sombra suave */
+}
+
+/* Estilos para títulos */
+h1, h2 {
+    text-align: center;
+    color: #e0e0e0;
+}
+
+/* Formulário com display flex */
+form {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+
+/* Labels e inputs estilizados */
+label {
+    margin: 5px 0;
+    font-weight: bold;
+    color: #b0b0b0;
+}
+
+input {
+    padding: 12px;
+    margin-bottom: 10px;
+    border: 1px solid #444;
+    border-radius: 5px;
+    background-color: #2d2d2d;
+    color: #e0e0e0;
+}
+
+/* Botões com efeito hover e animação */
+button {
+    padding: 12px;
+    background-color: #0066ff;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s, transform 0.2s;
+    box-shadow: 0px 4px 10px rgba(0, 102, 255, 0.3);
+}
+
+button:hover {
+    background-color: #0052cc;
+    transform: translateY(-2px); /* Efeito de leve elevação */
+}
+
+/* Estilos para tabelas */
+#relatorio {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+#relatorio th, #relatorio td {
+    padding: 12px;
+    border: 1px solid #444;
+    text-align: center;
+}
+
+#relatorio th {
+    background-color: #333;
+    color: #ffffff;
+}
+
+/* Filtros e paginação centralizados */
+#filtros, #pagination {
+    text-align: center;
+    margin: 20px 0;
+}
+
+#pagination button {
+    background-color: #0066ff;
+    border: none;
+    color: white;
+    padding: 8px 16px;
+    margin: 0 5px;
+    border-radius: 5px;
+}
+
+#pagination button:hover {
+    background-color: #0052cc;
+}
+
+/* Login */
+#loginSection {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #e0e0e0;
+}
+
+#loginForm {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Estilos para mensagens de erro */
+#error, .error {
+    color: #ff4d4d;
+    font-weight: bold;
+}
